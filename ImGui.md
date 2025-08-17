@@ -1,6 +1,9 @@
 # CALL HOOK
+```markdown
 1.hook_type = "OnDraw", "draw"
 2.hook_name = bebas
+```
+
 EXAMPLE :
 ```lua
 function imGui()
