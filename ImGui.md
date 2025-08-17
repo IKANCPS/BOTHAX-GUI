@@ -3,6 +3,8 @@ hook_name = bebas
 ```lua
 function imGui()
 -- code ImGui
+end
+
 AddHook(hook_type, hook_name, imGui)
 ```
 ```lua
