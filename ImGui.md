@@ -1,9 +1,12 @@
-hook_type = "OnDraw", "draw" hook_name = bebas
-lua
+hook_type = "OnDraw", "draw"
+hook_name = bebas
+```lua
 function imGui()
 -- code ImGui
 AddHook(hook_type, hook_name, imGui)
-lua
+```
+```lua
 AddHook(hook_type, hook_name, function()
 -- code ImGui
 end)
+```
