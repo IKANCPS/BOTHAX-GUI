@@ -1,54 +1,40 @@
-# 📖 Panduan Lengkap ImGui untuk Lua
+# 🎨 Panduan ImGui Lua Lengkap (B'Internal Version)
+### Dari Nol Sampai Jago! 🚀
 
+![Banner Keren Anda](https://via.placeholder.com/900x300.png?text=Taruh+Gambar+Keren+Kamu+Di+Sini!)
 
-<!-- Ganti URL di atas dengan link gambar Anda. Anda bisa upload gambar ke imgur.com -->
+Halo semua! Selamat datang di panduan ImGui untuk Lua.
 
-Selamat datang di panduan lengkap penggunaan ImGui dengan Lua! Dokumentasi ini dirancang untuk membantu Anda, mulai dari pemula hingga pengguna mahir, dalam membuat antarmuka grafis (GUI) yang fungsional dan menarik.
+Dokumentasi ini dibuat khusus buat kalian yang mau belajar bikin UI (User Interface) keren pakai ImGui, tapi mungkin bingung mau mulai dari mana. Tenang aja, kita bakal bahas semuanya pelan-pelan, dari yang paling dasar sampai fitur-fitur yang lebih canggih.
 
-Panduan ini dibuat berdasarkan file `IMGUI.txt` yang berisi daftar lengkap fungsi, namun disajikan dengan cara yang lebih terstruktur, dengan penjelasan dan contoh kode yang mudah diikuti.
-
----
-
-### **🔗 Link Penting & Komunitas**
-
-> [💬 **Bergabung dengan Komunitas Discord Kami!**](https://discord.gg/your-invite-code)
-> <!-- Ganti dengan link invite Discord Anda -->
->
-> Dapatkan bantuan, bagikan proyek Anda, atau sekadar mengobrol dengan sesama developer.
-
-> [📄 **Unduh File Referensi `IMGUI.txt`**](./IMGUI.txt)
-> <!-- Link ini akan berfungsi jika IMGUI.txt ada di folder yang sama dengan file MD ini. -->
->
-> Lihat daftar fungsi asli yang menjadi dasar dari panduan ini.
+Gak perlu takut, semuanya dijelasin pake bahasa yang santai dan contoh yang gampang dimengerti. Yuk, kita mulai!
 
 ---
 
-### **📋 Daftar Isi (Table of Contents)**
+## 💬 Gabung Komunitas Kita!
 
-1.  [**Bab 1: Persiapan dan Window Pertama Anda**](#bab-1-persiapan-dan-window-pertama-anda)
-    -   Memahami 'Hook' (`OnDraw`)
-    -   Membuat Window dengan `ImGui.Begin` & `ImGui.End`
-2.  [**Bab 2: Widget Dasar (The Essentials)**](#) <!-- Akan kita isi nanti -->
-3.  [**Bab 3: Input dari Pengguna (User Input)**](#) <!-- Akan kita isi nanti -->
-4.  [**Bab 4: Tata Letak dan Posisi (Layouting)**](#) <!-- Akan kita isi nanti -->
-5.  ... dan seterusnya.
+Punya pertanyaan, nemu masalah, atau cuma mau pamer hasil karyamu? Langsung aja gabung ke server Discord kita! Di sana banyak teman-teman yang siap bantu dan diajak ngobrol.
+
+**[>> Klik di sini untuk gabung Discord! <<](https://discord.gg/GANTI_DENGAN_LINK_INVITE_KAMU)**
+
+## 📚 Sumber Daya & Referensi
+
+Panduan ini adalah versi "manusiawi" dari file dokumentasi mentah `IMGUI.txt`. Kalau kamu tipe yang suka lihat daftar lengkap semua fungsi tanpa banyak penjelasan, kamu bisa download filenya di bawah ini.
+
+**[📥 Download IMGUI.txt (Referensi Cepat)](LINK_KE_FILE_IMGUI.TXT_DI_GITHUB_KAMU)**
 
 ---
 
-## Bab 1: Persiapan dan Window Pertama Anda
+## ✨ Langkah Pertama: "Hello, ImGui!"
 
-Sebelum kita bisa menampilkan tombol, slider, atau teks, kita perlu menyiapkan "kanvas" tempat semuanya akan digambar. Di sinilah kita akan belajar tentang **hook** dan cara membuat **window** pertama kita.
+Oke, cukup basa-basinya, ayo kita mulai ngoding!
 
-### Langkah A: Memahami 'Hook'
+Hal pertama yang wajib kamu tahu adalah ImGui perlu "digambar" setiap frame. Di lingkungan scripting kita, ini biasanya dilakukan di dalam sebuah *hook* bernama `OnDraw` atau `draw`. Anggap saja ini adalah kanvas kosong yang diberikan ke kamu setiap detik untuk digambar.
 
-ImGui perlu digambar setiap frame. Untuk melakukan ini, kita perlu "menumpang" pada proses render game/aplikasi. Ini dilakukan menggunakan sebuah *hook* ke fungsi `OnDraw` atau `draw`.
+**Struktur dasarnya selalu seperti ini:**
 
-Semua kode ImGui Anda **wajib** berada di dalam fungsi callback dari hook ini.
-
-**Struktur Dasar:**
 ```lua
--- Nama hook bisa 'OnDraw', 'draw', atau nama lain tergantung platform Anda.
--- "MyImGuiMenu" adalah nama unik untuk hook Anda.
-AddHook("OnDraw", "MyImGuiMenu", function()
-    -- Semua kode ImGui Anda akan ditulis di sini
+-- Nama hook bisa 'OnDraw' atau 'draw', tergantung platform-nya
+AddHook("OnDraw", "MyFirstImGui", function()
+    -- Semua kode ImGui kamu ditaruh di sini!
 end)
